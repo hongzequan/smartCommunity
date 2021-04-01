@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>便民服务</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <link rel="stylesheet" href="./assets/styles/dialogImg.css"/>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/service.css"/>
+</head>
+<body>
+    <div class="app-container flex flex-v flex-align-center">
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex flex-v">
+                <p class="title fontBold">灵活就业的就业困难人员社保补贴的资格认定</p>
+                <p class="time grayColor6">发布日期：2020.04.18</p>
+            </div>
+            <p class="arrow">＞</p>
+        </div>
+
+        <div class="entry-container discuss-print flex flex-v">
+            <ul>
+                <li class="on">
+                    <a href="javascript:;"><img data-src="assets/images/pay-code.png" src="./assets/images/icons/pay.png" alt=""></a>
+                </li>
+            </ul>
+            <img class="mt43" src="./assets/images/icons/mailbox.png"/>
+        </div>
+    </div>
+    <div class="Picture">
+        <div class="Picture-box">
+            <div class="theme flex flex-align-center">
+                <img src="" alt="">
+            </div>
+            <a href="javascript:;" class="gb-btn">×</a>
+        </div>
+    </div>
+</body>
+<script>
+    /*弹框大图*/
+	$('.gb-btn').click(function () {
+		$('.Picture').hide();
+		$('body').css('overflow','');
+	});
+	$('.discuss-print ul li').click(function () {
+		$('body').css('overflow','hidden');
+		index = $(".discuss-print ul li").index(this);
+		$('.discuss-print ul li').removeClass('on');
+		$(this).addClass("on");
+		$('.discuss-print ul li img').css('display','block');
+        $('.Picture').show();
+        $('.theme img').attr('src',$('.discuss-print .on img').attr('data-src'));
+	});
+</script>
+</html>

@@ -1,0 +1,94 @@
+
+.app-container .link-text {
+    color: #007AFF;
+}
+
+.app-container .btns {
+    width: 100%;
+    height:3.41rem;
+    background:rgba(255,255,255,1);
+    border-bottom: 0.04rem solid #EDEDED;
+    padding: 0.68rem;
+}
+
+.app-container .btns .item {
+    width:4.69rem;
+    height:2.13rem;
+    background:rgba(255,255,255,1);
+    box-shadow:0rem 0.09rem 0.17rem 0rem rgba(217,217,217,0.5);
+    border-radius:0.26rem;
+    border:0.04rem solid rgba(231,231,231,1);
+    font-size:0.6rem;
+    cursor: pointer;
+}
+
+.app-container .btns .active {
+    background:linear-gradient(312deg,rgba(255,143,52,1) 0%,rgba(255,56,37,1) 100%);
+    color: #FFFFFF;
+}
+
+.app-container .btns .item img {
+    height:0.85rem;
+    margin-right: 0.34rem;
+}
+
+.qa-container {
+    width: 100%;
+    height:9.56rem;
+    padding: 0.98rem 0.68rem;
+    background:rgba(255,255,255,1);
+    font-size:0.6rem;
+    font-weight:500;
+    border-bottom: 0.04rem solid #EDEDED;
+}
+
+.qa-container textarea {
+    margin-top: 0.68rem;
+    border: unset;
+}
+
+.upload-container {
+    font-weight: 500;
+    font-size:0.6rem;
+    width: 100%;
+    padding: 0.98rem 0.68rem;
+    background:rgba(255,255,255,1);
+    position: relative;
+}
+
+.upload-container .upload {
+    opacity: 0;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+.img-container {
+    width: 100%;
+    background:rgba(255,255,255,1);
+}
+
+.img-container .cover {
+    width:2.56rem;
+    height:3.41rem;
+    margin: 0 0 0.43rem 0.3rem;
+  }
+
+.img-container img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.img-container .delete {
+    width:2.56rem;
+    height:3.41rem;
+    font-size: 0.51rem;
+}
+
+.img-container .delete-img {
+    width:0.89rem;
+    height:0.85rem;
+    margin: 0.3rem 0;
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>注册</title>
+    <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="./assets/js/resize.js"></script>
+    <link rel="stylesheet" href="./assets/styles/base.css" />
+    <link rel="stylesheet" href="./assets/styles/auth.css" />
+
+    <!-- TODO新增 -->
+    <link rel="stylesheet" href="./assets/styles/dialogV2.css">
+    <link rel="stylesheet" href="./assets/styles/mobileSelect.css">
+    <link rel="stylesheet" href="./assets/styles/dropdown.min.css">
+    <link rel="stylesheet" href="./assets/styles/rolldate.css">
+    <link rel="stylesheet" href="./assets/styles/version2.css" />
+
+    <!-- 提示之类的对话框 -->
+    <script type="text/javascript" src="./assets/js/dialogV2.js"></script>
+    <script type="text/javascript" src="./assets/js/mobileSelect.js"></script>
+    <script type="text/javascript" src="./assets/js/dropdown.min.js"></script>
+    <script type="text/javascript" src="./assets/js/rolldate.min.js"></script>
+
+</head>
+
+<body>
+    <div class="auth-container flex flex-pack-center flex-align-center" id="registerPage">
+        <div class="form-container login register  flex flex-v flex-pack-center flex-align-center">
+            <p class="title">用户注册</p>
+            <ul class="ui-step flex">
+                <li class="ed">
+                    <div class="num">1</div>
+                    <div class="text">绑定手机</div>
+                </li>
+                <li class="ed">
+                    <div class="num">2</div>
+                    <div class="text">房屋信息</div>
+                </li>
+                <li class="active">
+                    <div class="num">3</div>
+                    <div class="text">完善信息</div>
+                </li>
+            </ul>
+            <div>
+                <div class="input-item flex flex-align-end">
+                    <label class="grayColor3">角色:</label>
+                    <div id="trigger1" class="select flex-1">请选择</div>
+                </div>
+                <div class="input-item flex flex-align-end" style="display: none;" id="member">
+                    <label class="grayColor3">党员:</label>
+                    <div class="flex ui-sex flex-pack-end flex-1" onchange="getRadioValue()">
+                        <div class="ui-radio">
+                            <input type="radio" name="member" checked="checked" value="0" id="no" />
+                            <label for="no">否</label>
+                        </div>
+                        <div class="ui-radio">
+                            <input type="radio" name="member" value="1" id="yes" />
+                            <label for="yes">是</label>
+                        </div>
+                    </div>
+                </div>
+                <div style='display: none;' id="moreForm">
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">所在党支部:</label>
+                        <div id="trigger2" class="select flex-1">请选择</div>
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">身份证号码:</label><input type="text" placeholder="请输入身份证号码" />
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">性别:</label>
+                        <div class="flex ui-sex flex-pack-end flex-1">
+                            <div class="ui-radio">
+                                <input type="radio" name="sex" checked="checked" value="0" id="man" />
+                                <label for="man">男</label>
+                            </div>
+                            <div class="ui-radio">
+                                <input type="radio" name="sex" value="1" id="wuman" />
+                                <label for="wuman">女</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">民族:</label><input type="text" placeholder="请输入民族" />
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">出生日期:</label>
+                        <div id="date1" class="select flex-1">请选择</div>
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">入党时间:</label>
+                        <div id="date2" class="select flex-1">请选择</div>
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">工作岗位:</label><input type="text" placeholder="请输入工作岗位" />
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">兴趣爱好:</label><input type="text" placeholder="请输入兴趣爱好" />
+                    </div>
+                    <div class="input-item flex flex-align-end">
+                        <label class="grayColor3">服务意向:</label>
+                        <div class="flex-1">
+                            <div id="multipleSelect" class="select multipleSelect">请选择</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">确认注册</div>
+        </div>
+    </div>
+
+
+    <script>
+
+        var mobileSelect1 = new MobileSelect({
+            trigger: '#trigger1',
+            title: '角色',
+            wheels: [
+            { data: [{ id: 1, value: '产权人' }, { id: 2, value: '家属' },{ id: 3, value: '租户' }] }],
+            //选择后的回调
+            callback: function (indexArr, data) {
+                console.log(indexArr, data);
+
+                //处理角色选择为产权人/家属展示是否党员字段 否则不展示
+                var memberValue=$("input[name='member']:checked").val()
+                if(data.length>0){
+                    if(data[0].id===1||data[0].id===2){
+                        $('#member').show();
+                        if(memberValue==='0'){
+                            $('#moreForm').hide();
+                            $('#registerPage').css('display','flex')
+                        }else{
+                            $('#moreForm').show();
+                            $('#registerPage').css('display','block')
+
+                        }
+                    }else{
+                        $('#member').hide();
+                        $('#moreForm').hide();
+                        $('#registerPage').css('display','flex')
+                    }
+                }
+            }
+        });
+        var mobileSelect2 = new MobileSelect({
+            trigger: '#trigger2',
+            title: '所在党支部',
+            wheels: [
+                { data: [{ id: '1', value: '1号楼' }, { id: '2', value: '2号楼' }] }
+            ],
+            callback: function (indexArr, data) {
+                console.log(indexArr, data);
+            }
+        });
+
+        var timeSelect = new Rolldate({
+            el: '#date1',
+            format: 'YYYY-MM-DD',
+            beginYear: 2000,
+            endYear: 2100,
+            //选择后的回调
+            confirm: function (date) {
+                console.log(date)
+            },
+        })
+        var timeSelect2 = new Rolldate({
+            el: '#date2',
+            format: 'YYYY-MM-DD',
+            beginYear: 2000,
+            endYear: 2100,
+            //选择后的回调
+            confirm: function (date) {
+                console.log(date)
+            },
+        })
+
+        var multiple = new Dropdown({
+            dom: 'multipleSelect',//点击触发下拉的选择框的id
+            type: 'multiple',//是单选还是多选 单选 single 多选 multiple
+            title: '服务意向',//选择框title
+            required: false,//是否必填
+            dataArr: [ // id不可重复
+                {
+                    id: '1',
+                    cont: '疫情防控'
+                },
+                {
+                    id: '2',
+                    cont: '美化家园'
+                },
+                {
+                    id: '3',
+                    cont: '助老助残'
+                },
+                {
+                    id: '4',
+                    cont: '平安共建'
+                },
+            ],
+            success: function (resp) {
+                console.log(resp, 'resp')
+
+                var val = '';
+                if (resp.length > 0) {
+                    for (var i in resp) {
+                        val += resp[i].cont + ' '
+                    }
+                } else {
+                    val = '多选请选择'
+                }
+                $('#multipleSelect').html(val)
+
+            }
+        })
+        function getRadioValue() {
+            const isEdit = $("input[name='member']:checked").val()
+            const obj = $('#moreForm');
+            const warp=$('#registerPage');
+            if (isEdit === '0') {
+                obj.hide()
+                warp.css('display','flex')
+            } else {
+                obj.show()
+                warp.css('display','block')
+
+            }
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>楼长任务</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/houseTask.css"/>
+</head>
+<body>
+    <div class="app-container flex flex-v flex-align-center">
+
+        <div class="task-container mt43">
+            <div class="status flex flex-pack-start">
+                <p class="warning-text">楼长任务</p>
+            </div>
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">任务内容：</span>
+                    <span>今日需走访入户10位居民，收集小区意见建日需走访入户10位居民，收集小区意见建</span>
+                </div>
+                <div class="flex">
+                    <span class="title"> 发 布 人 ： </span>
+                    <span>社区小李</span>
+                </div>
+                <div class="flex">
+                    <span class="title">联系电话：</span>
+                    <span>159 8589 9519</span>
+                </div>
+                <div class="flex">
+                    <span class="title">提交时间：</span>
+                    <span>2020.04.09</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-container flex flex-v grayColor3">
+            <div class="item">
+                <p class="fontBold">任务情况：已完成</p>
+            </div>
+            <div class="item">
+                <p>任务描述：完成全面顺利，大家都很肯定。</p>
+            </div>
+            <div class="item upload-container">
+                <p class="grayColor3">拍照上传：<span class="link-text">立即拍照</span></p>
+                <input class="upload" data-loop="loop1" type="file" accept="image/*" capture="camera" multiple onchange="uploadImg(this)"/>
+                <div class="img-container flex flex-wrap mt43">
+                    <div class="delete flex flex-v flex-pack-center flex-align-center" onclick="clearImg(this)">
+                        <img class="delete-img" src="./assets/images/icons/delete.png"/>
+                        <p class="grayColor3">清空</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <p> 楼 长：金三</p>
+            </div>
+            <div class="item">
+                <p>联系电话：15985899519</p>
+            </div>
+            <div class="item">
+                <p>发布时间：2020.04.10</p>
+            </div>
+        </div>
+
+        <div class="btn">完成任务</div>
+    </div>
+</body>
+<script>
+    isEmpty();
+
+    function isEmpty () {
+        let imgs = $('.upload-img').length;
+
+        if (imgs === 0) {
+            $('.img-container').css('display', 'none');
+        } else {
+            $('.img-container').css('display', 'flex');
+        }
+    }
+
+    // 选择文件
+    $('.link-text').on('click', function(e) {
+        $(this).closest('input[type=file]').trigger('click');
+    });
+
+    // 上传图片
+    function uploadImg(obj) {
+
+        $('.img-container').css('display', 'flex');
+
+        var newsrc = getObjectURL(obj.files[0]);
+        let i = $('.upload-img').length;
+        $('.img-container').prepend("<div class='cover'><img class='upload-img' src=' " + newsrc + "'/></div>");
+    };
+
+    // 获取文件URL
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL!=undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    };
+
+    // 清空图片
+    function clearImg (obj) {
+        $('.img-container .cover').remove();
+        isEmpty();
+    };
+</script>
+</html>

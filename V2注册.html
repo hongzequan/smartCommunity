@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>注册</title>
+    <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="./assets/js/resize.js"></script>
+    <link rel="stylesheet" href="./assets/styles/base.css" />
+    <link rel="stylesheet" href="./assets/styles/auth.css" />
+
+    <!-- TODO新增 -->
+    <link rel="stylesheet" href="./assets/styles/dialogV2.css">
+    <link rel="stylesheet" href="./assets/styles/version2.css" />
+    <script type="text/javascript" src="./assets/js/dialogV2.js"></script>
+
+</head>
+
+<body>
+    <div class="auth-container flex flex-pack-center flex-align-center">
+        <div class="form-container login register flex flex-v flex-pack-center flex-align-center">
+            <p class="title">用户注册</p>
+            <ul class="ui-step flex">
+                <li class="active">
+                    <div class="num">1</div>
+                    <div class="text">绑定手机</div>
+                </li>
+                <li>
+                    <div class="num">2</div>
+                    <div class="text">房屋信息</div>
+                </li>
+                <li>
+                    <div class="num">3</div>
+                    <div class="text">完善信息</div>
+                </li>
+            </ul>
+            <div>
+                <div class="input-item flex flex-align-end">
+                    <label class="grayColor3">姓名:</label><input type="text" placeholder="请输入姓名" />
+                </div>
+                <div class="input-item flex flex-align-end">
+                    <label class="grayColor3">电话:</label><input placeholder="请输入电话" />
+                </div>
+                <div class="input-item flex flex-align-end">
+                    <label class="grayColor3">密码:</label><input type="password" placeholder="请输入密码" />
+                </div>
+                <div class="input-item flex flex-align-end">
+                    <label class="grayColor3">验证码:</label>
+                    <div class="vCode flex-1">
+                        <input placeholder="请输入" maxlength="6" />
+                        <div class="ui-btn" onclick="getCode(this)">获取验证码</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn" onclick="submit()">下一步</div>
+
+        </div>
+    </div>
+    <script>
+        //当如果验证码错误以及密码错误之类的提示
+        function submit(num) {
+            $(document).dialog({
+                type: 'notice',
+                infoText: '验证码错误',
+                autoClose: 2500,
+                position: 'center' // center: 居中; bottom: 底部
+            });
+        }
+        //获取验证码
+        function getCode(obj) {
+            var time = 60;
+            setTime(obj)
+
+            function setTime(obj) {
+                console.log(obj, 'obj')
+                if (time == 0) {
+                    $(obj).attr('disabled', false);
+                    $(obj).html("获取验证码");
+                    time = 60;
+                    return;
+                } else {
+                    $(obj).attr('disabled', true);
+                    $(obj).html(time + "秒后获取");
+                    time--;
+                }
+                setTimeout(function() {
+                    setTime(obj)
+                }, 1000)
+            }
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,147 @@
+.app-container {
+    padding-bottom: 4rem;
+}
+
+.app-container .mt43 {
+    margin-top: 0.43rem;
+}
+
+.app-container .warning-text {
+    color: #FE7D02;
+}
+
+.app-container .item {
+    width:15.4rem;
+    background:rgba(255,255,255,1);
+    border-radius:0.43rem;
+    font-size:0.6rem;
+}
+
+.app-container .item .title {
+    min-width: 3.2rem;
+}
+
+.app-container .item .status {
+    width: 100%;
+    height: 1.71rem;
+    border-bottom: 0.04rem solid #F2F2F2;
+    text-align: center;
+    line-height: 1.71rem;
+    padding: 0 0.68rem;
+    color:rgba(0,0,0,1);
+}
+
+.app-container .item .content {
+    line-height:1rem;
+    padding: 0.68rem;
+    color: #000000;
+}
+
+.qa-container {
+    width: 100%;
+    height:9.56rem;
+    padding: 0.98rem 0.68rem;
+    background:rgba(255,255,255,1);
+    font-size:0.6rem;
+    font-weight:500;
+    border-bottom: 0.04rem solid #EDEDED;
+    margin-top: 0.68rem;
+}
+
+.qa-container textarea {
+    margin-top: 0.68rem;
+    border: unset;
+}
+
+.upload-container {
+    font-weight: 500;
+    font-size:0.6rem;
+    width: 100%;
+    padding: 0.98rem 0.68rem;
+    background:rgba(255,255,255,1);
+    position: relative;
+}
+
+.upload-container .upload {
+    opacity: 0;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+.app-container .link-text {
+    color: #007AFF;
+}
+
+.upload-container {
+    font-weight: 500;
+    font-size:0.6rem;
+    width: 100%;
+    padding: 0.98rem 0.68rem;
+    background:rgba(255,255,255,1);
+    position: relative;
+}
+
+.upload-container .upload {
+    opacity: 0;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    left: 10px;
+}
+
+.img-container {
+    width: 100%;
+    background:rgba(255,255,255,1);
+}
+
+.img-container .cover {
+    width:2.56rem;
+    height:3.41rem;
+    margin: 0 0 0.43rem 0.3rem;
+  }
+
+.img-container img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.img-container .delete {
+    width:2.56rem;
+    height:3.41rem;
+    font-size: 0.51rem;
+}
+
+.img-container .delete-img {
+    width:0.89rem;
+    height:0.85rem;
+    margin: 0.3rem 0;
+}
+
+.point-container {
+    width: 100%;
+    height:2.56rem;
+    padding:  0 0.68rem;
+    background:rgba(255,255,255,1);
+    border-top: 0.04rem solid #EDEDED;
+}
+
+.point-container .point-text {
+    color: #BBBBBB;
+}
+
+.app-container .btn {
+    width:10.24rem;
+    height:1.88rem;
+    background:rgba(0,122,255,1);
+    border-radius:1.07rem;
+    text-align: center;
+    line-height: 1.88rem;
+    color: #FFFFFF;
+    font-size:0.77rem;
+    font-weight:500;
+    position: fixed;
+    bottom: 1.41rem;
+}

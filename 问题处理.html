@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>问题处理</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/toast.js"></script>
+  <link rel="stylesheet" href="./assets/styles/toast.css"/>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/qaSolve.css"/>
+</head>
+<body>
+    <div class="app-container flex flex-v flex-align-center">
+        <div class="item mt43">
+            <div class="status flex flex-pack-start">
+                <p class="warning-text">等待处理</p>
+            </div>
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">反馈类型：</span>
+                    <span>物业维修</span>
+                </div>
+                <div class="flex">
+                    <span class="title">报修内容：</span>
+                    <span>30楼楼梯口灯坏了，赶紧来修一下赶紧来修一下赶紧来修一下赶紧来修一下</span>
+                </div>
+                <div class="flex">
+                    <span class="title">反 馈 人：</span>
+                    <span>3008室 张三</span>
+                </div>
+                <div class="flex">
+                    <span class="title">联系电话：</span>
+                    <span>159 8589 9519</span>
+                </div>
+                <div class="flex">
+                    <span class="title">提交时间：</span>
+                    <span>2020年4月9日</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="qa-container flex flex-v grayColor3">
+            <p>问题内容：</p>
+            <textarea rows="10" cols="20"></textarea>
+        </div>
+
+        <div class="upload-container grayColor3">
+            <p>拍照上传：<span class="link-text">立即拍照</span></p>
+            <input class="upload" type="file" accept="image/*" capture="camera" multiple onchange="uploadImg(this)"/>
+        </div>
+
+        <div class="img-container flex flex-wrap">
+            <div class="delete flex flex-v flex-pack-center flex-align-center" onclick="clearImg(this)">
+                <img class="delete-img" src="./assets/images/icons/delete.png"/>
+                <p class="grayColor3">清空</p>
+            </div>
+        </div>
+        <div class="point-container flex flex-align-center grayColor3">
+            <p>积分奖励：<span class="point-text">0</span> 分</p>
+        </div>
+
+        <div class="btn" onclick="showToast()">提交结果</div>
+    </div>
+</body>
+<script>
+    isEmpty();
+
+    function isEmpty () {
+        let imgs = $('.upload-img').length;
+
+        if (imgs === 0) {
+            $('.img-container').css('display', 'none');
+        } else {
+            $('.img-container').css('display', 'flex');
+        }
+    }
+
+    // 选择文件
+    $('.link-text').on('click', function(e) {
+        $(this).closest('input[type=file]').trigger('click');
+    });
+
+    // 上传图片
+    function uploadImg(obj) {
+
+        $('.img-container').css('display', 'flex');
+
+        var newsrc = getObjectURL(obj.files[0]);
+        let i = $('.upload-img').length;
+        $('.img-container').prepend("<div class='cover'><img class='upload-img' src=' " + newsrc + "'/></div>");
+    };
+
+    // 获取文件URL
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL!=undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    };
+
+    // 清空图片
+    function clearImg (obj) {
+        $('.img-container .cover').remove();
+        isEmpty();
+    };
+
+    function showToast () {
+        showMessage('提交成功', 5000, true, 'bounceIn-hastrans', 'bounceOut-hastrans');
+    };
+</script>
+</html>

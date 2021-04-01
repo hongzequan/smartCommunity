@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>我的活动</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/dialog.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/active.css"/>
+</head>
+<body>
+  <div class="app-container flex flex-v flex-align-center">
+    <div class="active-container flex flex-v">
+      <div class="item flex flex-v grayColor3">
+          <div class="cover">
+              <img class="main-bg" src="./assets/images/family-bg.png"/>
+          </div>
+          <div class="content">
+            <p class="title fontBold">99积分洗车一次！</p>
+            <p class="desc">所需积分：99</p>
+          </div>
+      </div>
+      <div class="btns flex">
+        <div class="btn-i default-btn grayColor6" onclick="showConfirm()">下架</div>
+        <div class="btn-i primary-btn">兑换</div>
+      </div> 
+    </div>
+
+    <div class="active-container flex flex-v">
+      <div class="item flex flex-v grayColor3">
+          <div class="cover">
+              <img class="main-bg" src="./assets/images/family-bg.png"/>
+          </div>
+          <div class="content">
+            <p class="title fontBold">99积分洗车一次！</p>
+            <p class="desc">所需积分：99</p>
+          </div>
+      </div>
+      <div class="btns flex">
+        <div class="btn-i default-btn grayColor6" onclick="showConfirm()">下架</div>
+        <div class="btn-i primary-btn">兑换</div>
+      </div> 
+    </div>
+
+      <div class="active-container flex flex-v">
+        <div class="item flex flex-v grayColor3">
+            <div class="cover">
+              <img class="main-bg" src="./assets/images/family-bg.png"/>
+            </div>
+            <div class="content">
+              <p class="title fontBold">99积分洗车一次！</p>
+              <p class="desc">所需积分：99</p>
+            </div>
+        </div>
+        <div class="btns flex">
+          <div class="btn-i default-btn grayColor6" onclick="showConfirm()">下架</div>
+          <div class="btn-i primary-btn" onclick="showInputConfirm()">兑换</div>
+        </div> 
+      </div>
+  </div>
+</body>
+<script>
+    function showInputConfirm() {
+      confirm({
+          title: '确认兑换',
+          content: '兑换码：<input class="dialog-input" type="text"/>',
+          doneText: '确认',
+          cancelText: '取消'
+      }).then(() => {
+        console.log('已确认')
+      }).catch(() => {
+          console.log('已取消')
+      })
+    };
+
+    function showConfirm() {
+      confirm({
+        title: '下架确认',
+        content: '是否下架该活动？',
+        doneText: '确认',
+        cancelText: '取消'
+    }).then(() => {
+      console.log('已确认')
+    }).catch(() => {
+        console.log('已取消')
+    })
+  };
+</script>
+</html>

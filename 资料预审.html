@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>资料预审</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/dialog.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/preTrial.css"/>
+</head>
+<body>
+  <div class="app-container flex flex-v flex-align-center">
+    <div class="card-container">
+        <div class="title flex flex-align-center fontBold">
+            <p>项目名称 </p>
+        </div>
+        <div class="content flex flex-align-center">
+            <p>城乡低保、农村五保供养、城镇“三无”对象申请</p>
+        </div>
+    </div>
+
+    <div class="upload-container flex flex-v">
+        <div class="loop loop1 flex flex-v">
+            <div class="flex flex-pack-justify flex-align-center">
+                <div class="flex flex-align-center">
+                    <p class="grayColor3">选择文件：<span class="link-text">选择文件或拍照</span></p>
+                    <input class="upload" data-loop="loop1" type="file" capture="camera" multiple onchange="uploadImg(this)"/>
+                </div>
+                <img class="add-img" src="./assets/images/icons/add.png" onclick="addLoop()"/>
+            </div>
+            <div class="img-container flex flex-wrap mt43">
+                <div class="delete flex flex-v flex-pack-center flex-align-center" data-loop="loop1" onclick="clearImg(this)">
+                    <img class="delete-img" src="./assets/images/icons/delete.png"/>
+                    <p class="grayColor3">清空</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="desc-container grayColor3">
+        <p class="fontBold">文件说明：</p>
+        <textarea cols="3"></textarea>
+    </div>
+
+    <div class="btn" onclick="showDialog()">提交资料预审</div>
+  </div>
+</body>
+<script>
+
+    function showDialog() {
+        alert({title: '提交成功', content: '等待后台工作人员审核，审核结果将通过公众号通知你。', doneText: '好'})
+    };
+
+    isEmpty();
+
+    function isEmpty () {
+        let loops = $('.upload-container' + ' .loop').length;
+
+        for (let i = 1 ; i <= loops ; i++) {
+            let imgs = $('.loop' + i + ' .upload-img').length;
+			let files = $('.loop' + i + ' .upload-filename').length;
+            if (imgs === 0 && files === 0) {
+            $('.loop' + i + ' .img-container').css('display', 'none');
+            } else {
+                $('.loop' + i + ' .img-container').css('display', 'flex');
+            }
+        }
+    }
+
+    // 选择文件
+    $('.link-text').on('click', function(e) {
+        $(this).closest('input[type=file]').trigger('click');
+    });
+
+    // 上传图片
+    function uploadImg(obj) {
+        let loop = obj.dataset.loop;
+
+        $('.' + loop + ' .img-container').css('display', 'flex');
+
+        var newsrc = getObjectURL(obj.files[0]);
+		
+		var filename = obj.files[0].name
+		
+        let i = $('.' + loop + ' .upload-img').length;
+		
+		if (obj.files[0].type.includes('image/')) {
+			$('.' + loop + ' .img-container').prepend("<div class='cover'><img class='upload-img' src=' " + newsrc + "'/></div>");
+		} else {
+			$('.' + loop + ' .img-container').prepend("<p class='upload-filename'>" + filename + "</p>");
+		}
+        
+    };
+
+    // 获取文件URL
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL!=undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    };
+
+    // 清空图片
+    function clearImg (obj) {
+        let loop = obj.dataset.loop;
+        $('.' + loop + ' .img-container .cover').remove();
+		$('.' + loop + ' .img-container .upload-filename').remove();
+        isEmpty();
+    };
+
+    // 添加行
+    function addLoop () {
+        let loops = $('.upload-container' + ' .loop').length;
+        let html = '';
+        html += "<div class='loop loop"+ (loops + 1) + " flex flex-v flex-pack-center'>" +
+                    "<div class='flex flex-pack-justify flex-align-center'>" +
+                        "<div class='mt43'>" +
+                            " <p class='grayColor3'>选择文件：<span class='link-text'>选择文件或拍照</span></p>" +
+                            "<input class='upload' data-loop='loop"+ (loops + 1) + "' type='file' accept='image/*' capture='camera' multiple onchange='uploadImg(this)'/>" +
+                        "</div>" +
+                        "<img class='reduce-img' data-loop='loop"+ (loops + 1) + "' src='./assets/images/icons/reduce.png' onclick='reduceLoop(this)'/>" +
+                    "</div>" +
+                    "<div class='img-container flex flex-wrap mt43' style='display:none'>" +
+                        "<div class='delete flex flex-v flex-pack-center flex-align-center' data-loop='loop"+ (loops + 1) + "' onclick='clearImg(this)'>" +
+                            "<img class='delete-img' src='./assets/images/icons/delete.png'/>" +
+                            "<p class='grayColor3'>清空</p>" +
+                        "</div>" +
+                    "</div>" +
+                "</div>"
+        $('.upload-container').append(html);
+
+    };
+
+    // 删除行
+    function reduceLoop (obj) {
+        let loop = obj.dataset.loop;
+        $('.' + loop).remove();
+    };
+</script>
+</html>

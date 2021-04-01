@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>首页</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/toast.js"></script>
+  <script type="text/javascript" src="./assets/js/dialog.js"></script>
+  <link rel="stylesheet" href="./assets/styles/toast.css"/>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/home.css"/>
+
+    <!-- TODO新增 -->
+    <link rel="stylesheet" href="./assets/styles/version2.css"/>
+
+</head>
+<body>
+  <div class="app-container flex flex-v flex-align-center">
+
+      <div class="header-container flex flex-pack-justify flex-align-center">
+        <div class="identity flex flex-align-center">
+            <div class="status">未登录</div>
+            <span>请登录</span>
+        </div>
+        <div class="operate flex flex-v flex-align-end">
+            <div class="item">修改密码</div>
+            <div class="item large">居民二维码</div>
+        </div>
+      </div>
+
+      <div class="swiper-container flex flex-align-center grayColor3">
+        <img src="./assets/images/icons/home/news.png"/>
+        <p class="content">2020年4月抗击疫情通知，小区防疫指南！</p>
+      </div>
+
+      <div class="entry-container flex flex-v flex-pack-center">
+        <div class="assets flex flex-pack-center flex-align-center" onclick="showEntryDialog()">
+            <img src="./assets/images/icons/home/assets.png"/>
+            <p>一键通达</p>
+        </div>
+
+        <div class="mt43 flex flex-pack-justify">
+            <div class="flex flex-v">
+                <div class="wish flex flex-v flex-pack-center flex-align-center" onclick="showToast()">
+                    <img src="./assets/images/icons/home/wish.png"/>
+                    <p class="mt43">“志愿”大家庭</p>
+                </div>
+                <div class="mt43 house flex flex-v flex-pack-center flex-align-center">
+                    <img src="./assets/images/icons/home/house.png"/>
+                    <p class="mt43">楼长在线</p>
+                </div>
+            </div>
+            <div class="service flex flex-v flex-pack-center flex-align-center">
+                <img src="./assets/images/icons/home/service.png"/>
+                <p class="mt43">便民服务</p>
+            </div>
+        </div>
+
+        <div class="mt43 flex flex-pack-justify">
+            <div class="rubbish flex flex-v flex-pack-center flex-align-center">
+                <img src="./assets/images/icons/home/rubbish.png"/>
+                <p class="mt43">垃圾分类</p>
+            </div>
+            <div class="point flex flex-v flex-pack-center flex-align-center">
+                <img src="./assets/images/icons/home/point.png"/>
+                <p class="mt43">积分应用</p>
+            </div>
+        </div>
+        <!-- TODO新增 -->
+        <div class="fixed-msg">
+            <img src="./assets/images/icons/home/msg.png"/>
+            <p class="ml43">消息</p>
+        </div>
+      </div>
+  </div>
+</body>
+<script>
+    function showToast() {
+		$('.assets').toast({
+			content:'暂无权限',
+			duration:1000
+		});
+    };
+	function showEntryDialog() {
+		let html = ''
+		html += '<div class="entry-dialog flex flex-pack-justify">' + 
+					'<div class="flex flex-v mt43">' +
+						'<img src="./assets/images/icons/work.png"/>'+
+						'<p class="mt43">社区工作</p>' +
+					'</div>' +
+					'<div class="flex flex-v mt43">' +
+						'<img src="./assets/images/icons/log.png"/>'+
+						'<p class="mt43">工作日志</p>' +
+					'</div>' +
+					'<div class="flex flex-v mt43">' +
+						'<img src="./assets/images/icons/ding.png"/>'+
+						'<p class="mt43">考勤打卡</p>' +
+					'</div>' +
+				'</div>'
+		alert({title: '选择类型', content: html, doneText: '返回'})
+		// confirm({
+		//     title: '确认兑换',
+		//     content: '兑换码：<input class="dialog-input" type="text"/>',
+		// 	showDone: false,
+		//     doneText: ' ',
+		//     cancelText: '返回'
+		// }).then(() => {
+		//   console.log('已确认')
+		// }).catch(() => {
+		//     console.log('已取消')
+		// })
+	}
+</script>
+</html>

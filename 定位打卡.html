@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>定位打卡</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/dialog.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/communitTask.css"/>
+</head>
+<body>
+    <div class="app-container flex flex-v flex-align-center">
+        <div class="select-container flex flex-pack-justify grayColor3">
+            <select>
+                <option>选择人员</option>
+                <option>张三</option>
+                <option>李四</option>
+                <option>王五</option>
+            </select>
+
+            <select>
+                <option>选择日期</option>
+                <option>今天</option>
+                <option>1天前</option>
+                <option>3天前</option>
+                <option>1周前</option>
+                <option>1个月前</option>
+                <option>全部</option>
+            </select>
+        </div>
+
+        <div class="item mt43">
+            <div class="status flex flex-pack-justify grayColor3">
+                <p>定位打卡</p>
+            </div>
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">打卡人员：</span>
+                    <span>张三</span>
+                </div>
+                <div class="flex">
+                    <span class="title">打卡地点：</span>
+                    <span>迎宾大道步文镇政府宿舍楼至6号店面迎宾大道步文镇政府宿舍楼至迎宾大道步文镇政府宿舍楼至</span>
+                </div>
+                <div class="flex">
+                    <span class="title">打卡时间：</span>
+                    <span>2020.04.10 09:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item mt43">
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">打卡人员：</span>
+                    <span>张三</span>
+                </div>
+                <div class="flex">
+                    <span class="title">打卡地点：</span>
+                    <span>迎宾大道步文镇政府宿舍楼至6号店面</span>
+                </div>
+                <div class="flex">
+                    <span class="title">打卡时间：</span>
+                    <span>2020.04.10 09:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="item mt43">
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">打卡人员：</span>
+                    <span>张三</span>
+                </div>
+                <div class="flex">
+                    <span class="title">打卡地点：</span>
+                    <span>迎宾大道步文镇政府宿舍楼至6号店面</span>
+                </div>
+                <div class="flex">
+                    <span class="title">打卡时间：</span>
+                    <span>2020.04.10 09:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn" onclick="showConfirm()">立即打卡</div>
+    </div>
+</body>
+<script>
+    function showConfirm() {
+        confirm({
+            title: '定位打卡',
+            content: '迎宾大道步文镇政府宿舍楼',
+            doneText: '确认',
+            cancelText: '取消'
+        }).then(() => {
+            console.log('已确认')
+        }).catch(() => {
+            console.log('已取消')
+        })
+    };
+</script>
+</html>

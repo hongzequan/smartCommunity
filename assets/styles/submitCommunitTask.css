@@ -1,0 +1,40 @@
+.app-container {
+  padding-bottom: 4rem;
+}
+
+.app-container .card-container {
+  width: 95%;
+  margin: 0.68rem 0;
+  padding: 0.43rem 0.68rem;
+  background:rgba(255,255,255,1);
+  border-radius:0.43rem;
+  color:rgba(0,0,0,1);
+  line-height:0.94rem;
+}
+
+.card-container .title {
+  color: #007AFF;
+  width: 100%;
+  height: 1.71rem;
+  border-bottom: 0.04rem solid #EDEDED;
+  font-size:0.6rem;
+}
+
+.card-container .content {
+  min-height: 3.41rem;
+}
+
+.submit-container {
+  width: 100%;
+  height:9.56rem;
+  background:rgba(255,255,255,1);
+  padding: 0.98rem 0.68rem;
+  font-size: 0.6rem;
+}
+
+.submit-container textarea {
+  width: 100%;
+  height:7rem;
+  border: unset;
+  margin-top: 0.68rem;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>获取&兑换记录</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/recode.css"/>
+</head>
+<body>
+  <div class="app-container flex flex-v flex-align-center">
+      <div class="tab-container flex flex-align-center flex-pack-center">
+        <div id="tabGet" class="item active" onclick="changeTab(this)">获取纪录</div>
+        <div id="tabPoint" class="item" onclick="changeTab(this)">兑换记录</div>
+      </div>
+
+      <div id="tabGetContent" class="content-container flex flex-v">
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex fontBold">
+                <span class="grayColor3">一键曝光：</span>
+                <span class="link-text">+3分</span>
+            </div>
+            <p class="grayColor6">2020.04.17</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex fontBold">
+                <span class="grayColor3">一键曝光：</span>
+                <span class="link-text">+3分</span>
+            </div>
+            <p class="grayColor6">2020.04.17</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex fontBold">
+                <span class="grayColor3">一键曝光：</span>
+                <span class="link-text">+3分</span>
+            </div>
+            <p class="grayColor6">2020.04.17</p>
+        </div>
+        <div class="item flex flex-pack-justify flex-align-center">
+            <div class="flex fontBold">
+                <span class="grayColor3">一键曝光：</span>
+                <span class="link-text">+3分</span>
+            </div>
+            <p class="grayColor6">2020.04.17</p>
+        </div>
+      </div>
+      <div id="tabPointContent" class="content-container flex flex-v flex-align-center" style="display: none;">
+        <div class="point-container mt43">
+            <div class="status flex flex-pack-start">
+                <p class="danger-text fontBold">-99分</p>
+            </div>
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">活动标题：</span>
+                    <span class="over">99积分洗车</span>
+                </div>
+                <div class="flex">
+                    <span class="title"> 兑 换 码 ： </span>
+                    <span>ABBC23</span>
+                </div>
+                <div class="flex">
+                    <span class="title">兑换时间：</span>
+                    <span>2020.04.09</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="point-container mt43">
+            <div class="status flex flex-pack-start">
+                <p class="danger-text fontBold">-99分</p>
+            </div>
+            <div class="flex flex-v content">
+                <div class="flex">
+                    <span class="title">活动标题：</span>
+                    <span class="over">99积分洗车</span>
+                </div>
+                <div class="flex">
+                    <span class="title"> 兑 换 码 ： </span>
+                    <span>ABBC23</span>
+                </div>
+                <div class="flex">
+                    <span class="title">兑换时间：</span>
+                    <span>2020.04.09</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+<script>
+function changeTab (obj) {
+    $('.tab-container .item').removeClass('active')
+    $('#' + obj.id).addClass('active')
+    $('.content-container').css('display', 'none')
+    $('#' + obj.id + 'Content').css('display', 'flex')
+}
+</script>
+</html>

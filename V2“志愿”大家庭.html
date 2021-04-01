@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>"志愿"大家庭</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/family.css"/>
+
+  <link rel="stylesheet" href="./assets/styles/version2.css" />
+</head>
+<body>
+  <div class="app-container flex flex-v flex-align-center">
+      <img class="family-bg" src="./assets/images/family-bg.png"/>
+
+      <div class="tab-container flex flex-align-center flex-pack-center">
+        <div id="tabAll" class="item active" onclick="changeTab(this)">所有活动</div>
+        <div id="tabMy" class="item" onclick="changeTab(this)">我参与的</div>
+      </div>
+
+      <div class="active-container flex flex-v flex-align-center">
+        <div class="item flex flex-pack-justify">
+            <div class="flex flex-align-center">
+                <!-- TODO class member控制 -->
+                <div class="cover member">
+                    <img class="main-img" src="./assets/images/1.png"/>
+                </div>
+                <div class="flex flex-v grayColor3" >
+                    <div class="flex flex-pack-justify">
+                        <span class="title fontBold">周末读书会志愿活动</span>
+                        <img class="recruiting-img" src="./assets/images/icons/recruiting.png"/>
+                    </div>
+                    <div class="flex flex-v">
+                        <span>志愿者人数：30人</span>
+                        <span>活动时间：2020.05.01 - 2020.06.01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item flex flex-pack-justify">
+            <div class="flex flex-align-center">
+                <div class="cover member">
+                    <img class="main-img" src="./assets/images/pay-code.png"/>
+                </div>
+                <div class="flex flex-v grayColor3" >
+                    <div class="flex flex-pack-justify">
+                        <span class="title fontBold">周末读书会志愿活动</span>
+                        <img class="recruiting-img" src="./assets/images/icons/recruiting.png"/>
+                    </div>
+                    <div class="flex flex-v">
+                        <span>志愿者人数：30人</span>
+                        <span>活动时间：2020.05.01 - 2020.06.01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item flex flex-pack-justify">
+            <div class="flex flex-align-center">
+                <div class="cover">
+                    <img class="main-img" src="./assets/images/pay-code.png"/>
+                </div>
+                <div class="flex flex-v grayColor3" >
+                    <div class="flex flex-pack-justify">
+                        <span class="title fontBold">周末读书会志愿活动</span>
+                        <img class="recruiting-img" src="./assets/images/icons/recruiting.png"/>
+                    </div>
+                    <div class="flex flex-v">
+                        <span>志愿者人数：30人</span>
+                        <span>活动时间：2020.05.01 - 2020.06.01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item flex flex-pack-justify">
+            <div class="flex flex-align-center">
+                <div class="cover">
+                    <img class="main-img" src="./assets/images/pay-code.png"/>
+                </div>
+                <div class="flex flex-v grayColor3" >
+                    <div class="flex flex-pack-justify">
+                        <span class="title fontBold">周末读书会志愿活动</span>
+                        <img class="recruiting-img" src="./assets/images/icons/recruiting.png"/>
+                    </div>
+                    <div class="flex flex-v">
+                        <span>志愿者人数：30人</span>
+                        <span>活动时间：2020.05.01 - 2020.06.01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item flex flex-pack-justify">
+            <div class="flex flex-align-center">
+                <div class="cover">
+                    <img class="main-img" src="./assets/images/pay-code.png"/>
+                </div>
+                <div class="flex flex-v grayColor3" >
+                    <div class="flex flex-pack-justify">
+                        <span class="title fontBold">周末读书会志愿活动</span>
+                        <img class="recruiting-img" src="./assets/images/icons/recruiting.png"/>
+                    </div>
+                    <div class="flex flex-v">
+                        <span>志愿者人数：30人</span>
+                        <span>活动时间：2020.05.01 - 2020.06.01</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</body>
+<script>
+function changeTab (obj) {
+    $('.tab-container .item').removeClass('active')
+    $('#' + obj.id).addClass('active')
+}
+</script>
+</html>

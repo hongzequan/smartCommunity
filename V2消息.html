@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>消息</title>
+    <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="./assets/js/resize.js"></script>
+    <link rel="stylesheet" href="./assets/styles/base.css" />
+    <!-- TODO新增 -->
+    <link rel="stylesheet" href="./assets/styles/mescroll.css" />
+    <link rel="stylesheet" href="./assets/styles/version2.css" />
+    <script type="text/javascript" src="./assets/js/mescroll.js"></script>
+
+</head>
+
+<body>
+    <div class="app-message flex flex-v flex-align-center">
+        <div id="mescroll0" class="mescroll">
+            <div class="dataList0">
+                <div class="item">
+                    <div class="headerInfo flex">
+                        <div class="logo">
+                            <img src="./assets/images/logo.png" alt="logo">
+                        </div>
+                        <div class="flex-1 flex rightCont">
+                            <div class="info flex-1">
+                                <div class="userName">公司名</div>
+                                <div class="time">2021.03.18 12:21</div>
+                            </div>
+                            <div class="unRead">未读</div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        消息内容，由后台指定用户发送，最多展示3行~消息 内容，由后台指定用户发送，最多展示3行~消息内容， 由后台指定用户发送，最多展示3行~
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="headerInfo flex">
+                        <div class="logo">
+                            <img src="./assets/images/logo.png" alt="logo">
+                        </div>
+                        <div class="flex-1 flex rightCont">
+                            <div class="info flex-1">
+                                <div class="userName">公司名</div>
+                                <div class="time">2021.03.18 12:21</div>
+                            </div>
+                            <div class="unRead">未读</div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        消息内容，由后台指定用户发送，最多展示3行~消息 内容，由后台指定用户发送，最多展示3行~消息内容， 由后台指定用户发送，最多展示3行~
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="headerInfo flex">
+                        <div class="logo">
+                            <img src="./assets/images/logo.png" alt="logo">
+                        </div>
+                        <div class="flex-1 flex rightCont">
+                            <div class="info flex-1">
+                                <div class="userName">公司名</div>
+                                <div class="time">2021.03.18 12:21</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        消息内容，由后台指定用户发送，最多展示3行~消息 内容，由后台指定用户发送，最多展示3行~消息内容， 由后台指定用户发送，最多展示3行~
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 加载插件默认配置
+        // 插件地址http://www.mescroll.com/api.html?v=68
+        function initMescroll(mescrollId, clearEmptyId) {
+            if (!$("#" + mescrollId)) {
+                return false;
+            }
+            //创建MeScroll对象,内部已默认开启下拉刷新,自动执行up.callback,刷新列表数据;
+            var mescroll = new MeScroll(mescrollId, {
+                //第一个参数"mescroll"对应上面布局结构div的id (1.3.5版本支持传入dom对象)
+                //如果您的下拉刷新是重置列表数据,那么down完全可以不用配置,具体用法参考第一个基础案例
+                //解析: down.callback默认调用mescroll.resetUpScroll(),而resetUpScroll会将page.num=1,再触发up.callback
+                down: {
+                    auto: false,
+                    isBoth: false,
+                    isBounce: false,
+                    callback: downCallback, //下拉刷新的回调,别写成downCallback(),多了括号就自动执行方法了.   downCallback
+                },
+                up: {
+                    auto: false, //初始化完毕,是否自动触发上拉加载的回调
+                    isBoth: false, //上拉加载时,如果滑动到列表顶部是否可以同时触发下拉刷新;默认false,两者不可同时触发; 这里为了演示改为true,不必等列表加载完毕才可下拉;
+                    isBounce: false, //此处禁止ios回弹,解析(务必认真阅读,特别是最后一点): http://www.mescroll.com/qa.html#q10
+                    callback: upCallback, //上拉加载的回调.  upCallback
+                    //以下是一些常用的配置,当然不写也可以的.
+                    page: {
+                        num: 0, //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
+                        size: 10 //每页数据条数,默认10
+                    },
+                    htmlNodata: '<p class="upwarp-nodata">没有更多记录</p>',
+                    noMoreSize: 5, //如果列表已无数据,可设置列表的总数量要大于5才显示无更多数据;
+                    // 避免列表数据过少(比如只有一条数据),显示无更多数据会不好看
+                    // 这就是为什么无更多数据有时候不显示的原因.
+                    empty: {
+                        //列表第一页无任何数据时,显示的空提示布局; 需配置warpId才显示
+                        warpId: mescrollId, //父布局的id (1.3.5版本支持传入dom元素)
+                        tip: "没有更多记录" //提示
+                    },
+                    warpClass: "mescroll-upwarp", //容器,装载布局内容,参见mescroll.css
+                    hardwareClass: "mescroll-hardware", //硬件加速样式,动画更流畅,参见mescroll.css
+                    htmlLoading: '<p class="upwarp-progress mescroll-rotate"></p><p class="upwarp-tip">加载中..</p>', //上拉加载中的布局
+
+                }
+            });
+            return mescroll;
+        }
+        // 初始化加载插件配置
+        var mescroll = initMescroll("mescroll0", "dataList0");
+        //下拉刷新的回调
+        function downCallback() {
+            mescroll.resetUpScroll(); //重置页码
+            // 为了模拟效果，实际上可以去掉延迟。
+            setTimeout(function() {
+                mescroll.endSuccess();
+            }, 1000)
+
+        }
+        //上拉加载的回调
+        function upCallback(page) {
+            setTimeout(function() {
+                mescroll.endSuccess(5, false);
+            }, 1000)
+
+            // $.ajax({
+            //     url: "{U('Consume/index')}?brm_id={$smarty.get.brm_id}&token={$smarty.get.token}&is_ajax=1&p=" + page.num + "&type=" + curNavIndex,
+            //     success: function(curPageData) {
+            //         if (curPageData.list == null) {
+            //             mescroll.endSuccess(0, false);
+            //         } else {
+            //             if (curPageData.page.totalCount > (curPageData.list.length + curPageData.page.limit * (page.num - 1))) {
+            //                 var hasNext = true;
+            //             } else {
+            //                 var hasNext = false;
+            //             }
+            //             mescroll.endSuccess(curPageData.list.length, hasNext);
+            //             if (page.num == 1) {
+            //                 var refresh = 1;
+            //             } else {
+            //                 var refresh = 2;
+            //             }
+            //             setListData(curPageData.list, refresh);
+            //         }
+            //     },
+            //     error: function(e) {
+            //         //联网失败的回调,隐藏下拉刷新和上拉加载的状态
+            //         mescroll.endErr();
+            //     }
+            // });
+        }
+
+        function setListData() {
+            //  这里必须异步dom操作
+            // 然后插入指定div块
+
+        }
+    </script>
+</body>
+
+</html>

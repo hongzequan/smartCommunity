@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>积分应用详情</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/dialog.js"></script>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/pointDetail.css"/>
+</head>
+<body>
+  <div class="app-container flex flex-v grayColor3">
+      <p class="title fontBold">iPhone SE 积分豪礼兑换！数量有限</p>
+      <p>所需积分：9999</p>
+      <p>发布时间：2020.04.15</p>
+      <div class="cover">
+          <img class="main-img" src="./assets/images/family-bg.png"/>
+      </div>
+      <p>99个积分就可以洗车！免费洗车！免费洗车！
+        万合汽贸十八周年回馈活动
+        为感谢新老客户
+        长期以来的信任与支持，
+        特发起会员福利月活动
+        加油优惠再送洗车
+        玻璃水也加满！
+        全城狂欢，一起洗嗨！
+        快来看看活动细节吧！
+      </p>
+      <div class="flex flex-pack-center">
+          <div class="btn" onclick="showConfirm()">立即兑换</div>
+      </div>
+  </div>
+</body>
+<script>
+  function showConfirm() {
+    confirm({
+        title: '确认兑换',
+        content: '是否使用9999积分进行兑换？',
+        doneText: '确认',
+        cancelText: '取消'
+    }).then(() => {
+      console.log('已确认')
+    }).catch(() => {
+        console.log('已取消')
+    })
+  };
+</script>
+</html>

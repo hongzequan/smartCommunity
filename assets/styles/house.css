@@ -1,0 +1,73 @@
+.app-container {
+    padding-bottom: 4rem;
+}
+
+.app-container .info-text {
+    color: #007AFF;
+}
+
+.app-container .warning-text {
+    color: #FE7D02;
+}
+
+.app-container .danger-text {
+    color: #FF0000;
+}
+
+.app-container .success-text {
+    color: #00EC10;
+}
+
+.app-container .house-bg {
+    width: 100%;
+    height:7.68rem;
+}
+
+.app-container .select-container {
+    width: 100%;
+    height:2.13rem;
+    padding: 0.43rem 0.68rem;
+    background:rgba(255,255,255,1);
+    font-size:0.51rem;
+}
+
+.select-container select {
+    width:7.04rem;
+    height:1.28rem;
+    border:0.04rem solid rgba(209,209,214,1);
+    background:rgba(255,255,255,1);
+}
+
+.app-container .item {
+    width:15.4rem;
+    background:rgba(255,255,255,1);
+    border-radius:0.43rem;
+    font-size:0.6rem;
+}
+
+.app-container .item .title {
+    min-width: 3.2rem;
+}
+
+.app-container .item .over {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.app-container .item .status {
+    width: 100%;
+    height: 1.71rem;
+    border-bottom: 0.04rem solid #F2F2F2;
+    text-align: center;
+    line-height: 1.71rem;
+    padding: 0 0.68rem;
+    color:rgba(0,0,0,1);
+}
+
+.app-container .item .content {
+    line-height:1rem;
+    padding: 0.68rem;
+    color: #000000;
+}

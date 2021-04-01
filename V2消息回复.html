@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>消息</title>
+    <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="./assets/js/resize.js"></script>
+    <link rel="stylesheet" href="./assets/styles/base.css" />
+    <!-- TODO新增 -->
+    <link rel="stylesheet" href="./assets/styles/version2.css" />
+
+</head>
+
+<body>
+    <div class="app-message flex flex-v flex-align-center">
+        <div class="item">
+            <div class="headerInfo flex">
+                <div class="logo">
+                    <img src="./assets/images/logo.png" alt="logo">
+                </div>
+                <div class="flex-1 flex rightCont">
+                    <div class="info flex-1">
+                        <div class="userName">公司名</div>
+                        <div class="time">2021.03.18 12:21</div>
+                    </div>
+                    <div class="unRead">未读</div>
+                </div>
+            </div>
+            <!-- TODO 这里由于是详情页，所以这边应该展示详情所以多加了个class showMore -->
+            <div class="content showMore">
+                消息内容，由后台指定用户发送，最多展示3行~消息
+                内容，由后台指定用户发送，最多展示3行~消息内容，
+                由后台指定用户发送，最多展示3行~
+            </div>
+        </div>
+        <div class="item reply">
+            <b>回复内容</b>
+            <textarea placeholder="请输入内容"></textarea>
+            <div class="btn">发布</div>
+        </div>
+    </div>
+</body>
+
+</html>

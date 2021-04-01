@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>问题反馈</title>
+  <script type="text/javascript" src="./assets/js/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="./assets/js/resize.js"></script>
+  <script type="text/javascript" src="./assets/js/toast.js"></script>
+  <link rel="stylesheet" href="./assets/styles/toast.css"/>
+  <link rel="stylesheet" href="./assets/styles/base.css"/>
+  <link rel="stylesheet" href="./assets/styles/qaBack.css"/>
+</head>
+<body>
+  <div class="app-container flex flex-v flex-align-center">
+
+    <div class="btns flex flex-align-center flex-pack-justify">
+        <div id="tabFix" class="item grayColor3 active flex flex-pack-center flex-align-center" onclick="changeTab(this)">
+            <img src="./assets/images/icons/fix-select.png"/>
+            <p>一键报修</p>
+        </div>
+
+        <div id="tabWarn" class="item grayColor3 flex flex-pack-center flex-align-center" onclick="changeTab(this)">
+            <img src="./assets/images/icons/warn.png"/>
+            <p>一键预警</p>
+        </div>
+
+        <div id="tabExposure" class="item grayColor3 flex flex-pack-center flex-align-center" onclick="changeTab(this)">
+            <img src="./assets/images/icons/exposure.png"/>
+            <p>一键曝光</p>
+        </div>
+    </div>
+
+    <div class="qa-container flex flex-v grayColor3">
+        <p>问题内容：</p>
+        <textarea rows="10" cols="20"></textarea>
+    </div>
+
+    <div class="upload-container grayColor3">
+        <p>拍照上传：<span class="link-text">立即拍照</span></p>
+        <input class="upload" type="file" accept="image/*" capture="camera" multiple onchange="uploadImg(this)"/>
+    </div>
+
+    <div class="img-container flex flex-wrap">
+        <div class="delete flex flex-v flex-pack-center flex-align-center" onclick="clearImg(this)">
+            <img class="delete-img" src="./assets/images/icons/delete.png"/>
+            <p class="grayColor3">清空</p>
+        </div>
+    </div>
+
+    <div class="btn">立即提交</div>
+  </div>
+</body>
+<script>
+    isEmpty();
+
+    function isEmpty () {
+        let imgs = $('.upload-img').length;
+
+        if (imgs === 0) {
+            $('.img-container').css('display', 'none');
+        } else {
+            $('.img-container').css('display', 'flex');
+        }
+    }
+
+    // 选择文件
+    $('.link-text').on('click', function(e) {
+        $(this).closest('input[type=file]').trigger('click');
+    });
+
+    // 上传图片
+    function uploadImg(obj) {
+
+        $('.img-container').css('display', 'flex');
+
+        var newsrc = getObjectURL(obj.files[0]);
+        let i = $('.upload-img').length;
+        $('.img-container').prepend("<div class='cover'><img class='upload-img' src=' " + newsrc + "'/></div>");
+    };
+
+    // 获取文件URL
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL!=undefined) {
+            url = window.createObjectURL(file);
+        } else if (window.URL!=undefined) {
+            url = window.URL.createObjectURL(file);
+        } else if (window.webkitURL!=undefined) {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    };
+
+    // 清空图片
+    function clearImg (obj) {
+        $('.img-container .cover').remove();
+        isEmpty();
+    };
+
+    function changeTab (obj) {
+        $('.btns .item img').each(function() {
+            $(this).attr('src', $(this).attr('src').replace('-select.png', '.png'))
+        })
+        
+        $('.btns .item').removeClass('active')
+        $('#' + obj.id).addClass('active')
+        $('#' + obj.id + ' img').attr('src', $('#' + obj.id + ' img').attr('src').replace('.png', '-select.png'))
+    }
+</script>
+</html>

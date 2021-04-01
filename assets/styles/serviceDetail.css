@@ -1,0 +1,40 @@
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    background:rgba(254,255,255,1);
+    padding: 0.9rem 0.68rem 4.47rem 0.68rem;
+    font-size:0.68rem;
+}
+
+.app-container .mt43 {
+    margin-top: 0.43rem;
+}
+
+.app-container .title {
+    font-size: 0.77rem;
+    line-height:1.07rem;
+}
+
+.app-container .time {
+    font-size:0.6rem;
+    margin-bottom: 1.37rem;
+}
+
+.app-container .content {
+    line-height:1.1rem;
+    font-weight:400;
+}
+
+.app-container .btn {
+    width:10.24rem;
+    height:1.88rem;
+    background:rgba(0,122,255,1);
+    border-radius:1.07rem;
+    text-align: center;
+    line-height: 1.88rem;
+    color: #FFFFFF;
+    font-size:0.77rem;
+    font-weight:500;
+    position: fixed;
+    bottom: 1.41rem;
+}
